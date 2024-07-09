@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Management</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Welcome, {{ session['username'] }}</h2>
+        <h3>Book Management</h3>
+        <form method="POST" action="/book_management">
+            {% for book in books %}
+                <label>
+                    <input type="checkbox" name="book_id" value="{{ book[0] }}"> {{ book[1] }}
+                </label><br>
+            {% endfor %}
+            <br>
+            <button type="submit">Add to Cart</button>
+        </form>
+    </div>
+</body>
+</html> 
+
+
+
